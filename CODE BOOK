@@ -1,0 +1,44 @@
+The run_analysis.R script performs the following task:
+
+1.The dataset was downloaded from the url "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip" and was extracted into a folder called "UCI HAR Dataset"
+
+2. Each data  was assigned a descriptive column name
+features <- features.txt :
+This is a list containing all features
+
+activities <- activity_labels.txt : This contains the list of activities which are linked to a class label
+
+subject_test <- test/subject_test.txt :This refers to volunteer subjects who performed the activities for the testing sample.
+
+x_test <- test/X_test.txt : These are the recorded test set.
+
+y_test <- test/y_test.txt : These are the recorded test labels.
+
+subject_train <- test/subject_train.txt : This refers to volunteer subjects who performed the activities for the training sample.
+
+x_train <- test/X_train.txt : These are the recorded training set.
+
+y_train <- test/y_train.txt : These are the recorded training labels.
+
+3. The train and test data were then merged to create one data set
+X was created by merging x_train and x_test using rbind() function.
+
+Y was created by merging y_train and y_test using rbind() function
+
+Subject was created by merging subject_train and subject_test using rbind() function
+
+Merged_Data was created by merging Subject, Y and X using cbind() function
+
+4. A Tidydata was created by extracting only the measurements of the mean and standard deviation for each measurement. The TidyData was created by selecting these columns: subject, activity_code and the measurements containing mean and standard deviation (std) for each measurement.
+
+5. Descriptive activity names were used to name the activities in the data set. This was done by replacing the numbers in the activity_code column with the corresponding activity in the second column of the activities variable.
+
+6.The data set were approraitely labeled with descriptive variable names;
+ Acc was replaced by Accelerometer
+ Gyro was replaced by Gyroscope
+ BodyBody was replaced by Body
+ Mag was replaced by Magnitude
+ f was replaced by Frequency
+ t was replaced by Time
+
+7. A second,independent tidy dataset (Indy_data) with the average of each variable for each activity and each subject Was created
